@@ -9,7 +9,7 @@ describe("Ticket", function() {
         matineeTime: true
       };
       testTicket.movie = testMovie;
-      testTicket.age = 40;
+      testTicket.ageGroup = "adult";
       expect(testTicket.cost()).to.equal(10.00);
     });
 
@@ -22,7 +22,7 @@ describe("Ticket", function() {
         matineeTime: true
       };
       testTicket.movie = testMovie;
-      testTicket.age = 10;
+      testTicket.ageGroup = "child";
       expect(testTicket.cost()).to.equal(8.00);
     });
 
@@ -35,7 +35,7 @@ describe("Ticket", function() {
         matineeTime: false
       };
       testTicket.movie = testMovie;
-      testTicket.age = 40;
+      testTicket.ageGroup = "adult";
       expect(testTicket.cost()).to.equal(15.00);
     });
 
@@ -48,7 +48,7 @@ describe("Ticket", function() {
         matineeTime: true
       };
       testTicket.movie = testMovie;
-      testTicket.age = 55;
+      testTicket.ageGroup = "senior";
       expect(testTicket.cost()).to.equal(6.00);
     });
 
@@ -61,7 +61,7 @@ describe("Ticket", function() {
         matineeTime: false
       };
       testTicket.movie = testMovie;
-      testTicket.age = 35;
+      testTicket.ageGroup = "adult";
       expect(testTicket.cost()).to.equal(17.75);
     });
   });

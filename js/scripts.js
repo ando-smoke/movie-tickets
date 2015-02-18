@@ -7,9 +7,9 @@ var Ticket= {
         seniorDiscount = 4.00,
         firstReleaseCharge = 2.75;
 
-    if (this.age <= 12) {
+    if (this.ageGroup === "child") {
       price -= childDiscount;
-    } else if (this.age >= 55){
+    } else if (this.ageGroup === "senior"){
       price -= seniorDiscount;
     }
 
