@@ -38,6 +38,19 @@ describe("Ticket", function() {
       testTicket.age = 40;
       expect(testTicket.cost()).to.equal(15.00);
     });
+
+    it("returns the correct cost for an senior ticket to a non-first-release " +
+      "movie showing at a matinee time", function() {
+      var testTicket = Object.create(Ticket);
+      var testMovie = {
+        name: "Finding Nemo",
+        firstRelease: false,
+        matineeTime: true
+      };
+      testTicket.movie = testMovie;
+      testTicket.age = 55;
+      expect(testTicket.cost()).to.equal(6.00);
+    });
   });
 
 
