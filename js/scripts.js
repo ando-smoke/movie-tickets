@@ -24,3 +24,16 @@ var Ticket= {
     return price;
   }
 };
+
+
+$(function(){
+  $(".second-run.matinee").click(function(){
+    var ageGroup = $("#age-groups").val();
+    var movie = {firstRelease: false, matineeTime: true};
+    var ticket = Object.create(Ticket);
+    ticket.ageGroup = ageGroup;
+    ticket.movie = movie;
+    $("#ticket-cost").text(ticket.cost().toFixed(2));
+    $("#ticket-cost-summary").show();
+  });
+});
