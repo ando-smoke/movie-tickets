@@ -1,0 +1,8 @@
+.matinee , .evening {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.matinee:hover, .evening:hover{
+  text-decoration: underline;
+}
