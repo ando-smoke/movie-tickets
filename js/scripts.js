@@ -57,6 +57,15 @@ $(function(){
     $("#ticket-cost-summary").show();
   });
 
+  $(".first-run.evening").click(function(){
+    var ageGroup = $("#age-groups").val();
+    var movie = {firstRelease: true, matineeTime: false};
+    var ticket = Object.create(Ticket);
+    ticket.ageGroup = ageGroup;
+    ticket.movie = movie;
+    $("#ticket-cost").text(ticket.cost().toFixed(2));
+    $("#ticket-cost-summary").show();
+  });
 
 
 
