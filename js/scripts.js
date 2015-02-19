@@ -27,46 +27,23 @@ var Ticket= {
 
 
 $(function(){
-  $(".second-run.matinee").click(function(){
-    var ageGroup = $("#age-groups").val();
-    var movie = {firstRelease: false, matineeTime: true};
-    var ticket = Object.create(Ticket);
-    ticket.ageGroup = ageGroup;
-    ticket.movie = movie;
-    $("#ticket-cost").text(ticket.cost().toFixed(2));
-    $("#ticket-cost-summary").show();
+  var firstOrSecond = ["first", "second"];
+  var matineeOrEvening = ["matinee", "evening"];
+
+  firstOrSecond.forEach(function(outerElem) {
+    matineeOrEvening.forEach(function(innerElem) {
+      $("." + outerElem + "-run." + innerElem).click(function() {
+        var ageGroup = $("#age-groups").val();
+        var movie = {
+          firstRelease: (outerElem === "first"),
+          matineeTime: (innerElem === "matinee")
+        };
+        var ticket = Object.create(Ticket);
+        ticket.ageGroup = ageGroup;
+        ticket.movie = movie;
+        $("#ticket-cost").text(ticket.cost().toFixed(2));
+        $("#ticket-cost-summary").show();
+      });
+    });
   });
-
-  $(".first-run.matinee").click(function(){
-    var ageGroup = $("#age-groups").val();
-    var movie = {firstRelease: true, matineeTime: true};
-    var ticket = Object.create(Ticket);
-    ticket.ageGroup = ageGroup;
-    ticket.movie = movie;
-    $("#ticket-cost").text(ticket.cost().toFixed(2));
-    $("#ticket-cost-summary").show();
-  });
-
-  $(".second-run.evening").click(function(){
-    var ageGroup = $("#age-groups").val();
-    var movie = {firstRelease: false, matineeTime: false};
-    var ticket = Object.create(Ticket);
-    ticket.ageGroup = ageGroup;
-    ticket.movie = movie;
-    $("#ticket-cost").text(ticket.cost().toFixed(2));
-    $("#ticket-cost-summary").show();
-  });
-
-  $(".first-run.evening").click(function(){
-    var ageGroup = $("#age-groups").val();
-    var movie = {firstRelease: true, matineeTime: false};
-    var ticket = Object.create(Ticket);
-    ticket.ageGroup = ageGroup;
-    ticket.movie = movie;
-    $("#ticket-cost").text(ticket.cost().toFixed(2));
-    $("#ticket-cost-summary").show();
-  });
-
-
-
 });
